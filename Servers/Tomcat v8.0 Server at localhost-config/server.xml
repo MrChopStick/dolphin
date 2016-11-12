@@ -131,7 +131,8 @@
       		driverClassName="com.mysql.jdbc.Driver"
       		url="jdbc:mysql://localhost:3306/data?useCursorFetch=true&amp;defaultFetchSize=10000" removeAbandonedTimeout="60" removeAbandoned="true" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" initialSize="30">
       	</Resource>
-      </Context></Host>
+      	<Realm className="org.apache.catalina.realm.DataSourceRealm" userTable="staff" userNameCol="staff_id" userCredCol="staff_pwd" roleNameCol="role" localDataSource="true" userRoleTable="role" dataSourceName="connectionPool">
+      	</Realm></Context></Host>
     </Engine>
   </Service>
 </Server>

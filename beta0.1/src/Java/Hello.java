@@ -85,6 +85,8 @@ public class Hello extends HttpServlet {
 		Data_operator.Check_plan_detail_update(2, 1, 3, 1);
 		Data_operator.Check_list_update(3,"45","sad",1,1);
 		Data_operator.Staff_update("oo", "as", "zxc", "12222111111", 5, 100002);
+		Unit u=Unit.getUnit();
+		
 	}
 
 	/**
