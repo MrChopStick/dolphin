@@ -1,0 +1,199 @@
+package servlet;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.sql.*;
+import java.util.*;
+import java.util.Date;
+
+
+public class DB_act {
+	protected String userId;
+	protected String passwd;
+	//{"userId":"1234","passwd":"123"}
+	  
+	/*
+	private Datasource DB_connect() throws NamingException{
+		if(datasource == null){
+			Context initContext = new InitialContext();
+			Context envContext = (Context)initContext.lookup("java:/comp/env");
+			datasource = (Datasource)envContext.lookup("jdbc/CheckSystem");
+		}
+		return Datasource;
+		
+	}
+	
+	ResultSet DB_SELECTE(String ob, String desi, String table, String col){
+		String str="SELECTE "+col+" FROM "+table+" WHERE "+ob+"='"+desi+"'";
+		ResultSet result = null;
+		return result;
+	}
+	
+	boolean DB_INSERT_Result(Map ob, String col, String table){
+		
+		Statement statement = null;
+		String ctr_id = ob.get("ctr_id").toString();
+		String ctr_eid = ob.get("ctr_eid").toString();
+		String ctr_cid = ob.get("ctr_cid").toString();
+		String ctr_tid = ob.get("ctr_tid").toString();
+		String ctr_result = ob.get("ctr_result").toString();
+		String sql = "INSERT INTO `check_task_result` "
+				+ "(`ctr_id`, `ctr_eid`, `ctr_cid`, `ctr_tid`, `ctr_result`) "
+				+ "VALUES ('"+ctr_id+"', '"+ctr_eid+"', '"+ctr_cid+"', '"+ctr_tid+"', '"+ctr_result+"')";
+		//ResultSet result = statement.executeQuery(sql);
+		
+		
+		
+		return true;
+	}
+	
+	boolean DB_DELETE(){
+		
+	}
+	*/
+	
+	void connect()
+	{
+		;
+	}
+	
+	void staff_select(int staff_id, String staff_name, 
+			int staff_department, String staff_job)
+	{
+		
+	}
+	
+	void staff_insert(int staff_id,String staff_passwd,String job, String name, 
+			String phone, int staff_department)
+	{
+		
+	}
+	
+	void staff_delete(int staff_id){
+		
+	}
+	
+	void staff_update(int staff_id,String staff_passwd,String job, String name, 
+			String phone, int staff_department){
+		
+	}
+	
+	String repair_select(String userId)
+	{
+		connect();
+		String result = new String();
+		return result;
+	}
+	
+	String task_select(String userId)
+	{
+		connect();
+		String result = new String();
+		return result;
+	}
+	
+	JSONObject plan_select()
+	{
+		JSONObject result = new JSONObject();
+		return result;
+	}
+	
+	void plan_insert(){
+		String sql = new String();
+	}
+	
+	void plan_delete(int plan_id){
+		
+	}
+	
+	void plan_update(){
+		
+	}
+	
+	JSONObject eq_select()
+	{
+		JSONObject result = new JSONObject();
+		return result;
+	}
+	
+	void eq_insert(int eq_id, String eq_name, int eq_group,
+			int eq_type, int eq_state, int manager)
+	{
+		String sql = new String();
+	}
+	
+	void eq_delete(int eq_id){
+		String sql = new String();
+	}
+	
+	void eq_update(int eq_id, String eq_name, int eq_group,
+			int eq_type, int eq_state, int manager){
+		
+	}
+	
+	
+	
+	void task_insert()
+	{
+		
+	}
+	
+	
+	
+	void repair_insert(int inspector_id, int eqid, Date report_time, Date m_got_time,
+			Date m_deal_time,Date i_got_time,Date i_arrive_time,
+			Date i_deal_time, Date finish_time, boolean repair_state,
+			String detail)
+	{
+		connect();
+		String sql = new String();
+	}
+	
+	void repair_update()
+	{
+		
+	}
+	
+	static void Response(HttpServletRequest request, HttpServletResponse response,
+			String resultOfSQL) throws ServletException, IOException
+	{
+		response.getWriter().append(resultOfSQL);
+	}
+	
+	static String get_request(HttpServletRequest request, HttpServletResponse response)
+	{
+		StringBuffer requestData = new StringBuffer();
+		String DataString = new String();
+		try{
+			BufferedReader reader = request.getReader();
+			while((DataString = reader.readLine()) != null){
+				requestData.append(DataString);
+			}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return requestData.toString();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
